@@ -1,0 +1,24 @@
+"""
+  Regression test 04: When two surface molecules undergo a reaction in which
+        both reagents are preserved, and in which both reagents change
+        orientation, counting does not occur properly.
+
+        Failure: as flippy increases, a000- and b000- remain 0
+
+        Success: a000- and b000- increase to non-zero values
+                 flippy increases
+                 at all times a000- + a000+ == 300
+                 at all times b000- + b000+ == 300
+
+  Author: Jed Wing <jed@salk.edu>
+  Date:   2008-09-10
+"""
+
+t = McellTest("04-rx_flipflip")
+cannonballs = t.reaction_output("cannonballs.txt")
+
+cannonballs[0] + cannonballs[1] == cannonballs[2]
+cannonballs[2] == 500
+cannonballs[3] + cannonballs[4] == cannonballs[5]
+cannonballs[5] == 500
+

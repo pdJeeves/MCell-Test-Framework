@@ -1,0 +1,3 @@
+ITERATIONS                                  = 10*10*10
+CHECKPOINT_ITERATIONS                       = 1250
+

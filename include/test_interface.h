@@ -1,6 +1,5 @@
 #ifndef _test_interface_h_
 #define _test_interface_h_
-#include "average.h"
 #include "scheduler_interface.h"
 #include "data_table.hpp"
 

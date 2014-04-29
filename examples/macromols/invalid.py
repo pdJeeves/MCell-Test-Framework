@@ -6,5 +6,5 @@
 """
 
 for i in range(1, 40):
-  McellTest("invalid-{0:02d}.mdl".format(i))
+  MCellTest("invalid-{0:02d}.mdl".format(i))
 

@@ -40,12 +40,12 @@ The tests support * / + - wherever possible.  Doubles support all of these opera
 
 Data tables and data columns support all comparison operators, when compared with another data table they will throw an error if the number of rows or columns does not equal the number in this table.  During comparisons each item is compared with the corresponding item in the other object, if they are compared with a single double or average then each item is compared with that object.  If comparison operations are contained in str() then that will produce a string of the default error message, if they are contained in an if() or an assert() they will evaluate to a bool, otherwise they will print a default error message to stdout--this will also happen if !, &&, or || is used in the expression, due to the mechanics of how python works.  The stdout of each file is given by a string in the configuration file of the framework.
 
-Averages are made with average(mean, std_dev), or average(doubleColumn), if average(doubleTable) is called then it will return a list of averages.  Averages have the properties:
+Averages are made with Average(mean, std_dev), or Average(doubleColumn), if Average(doubleTable) is called then it will return a list of averages.  Averages have the properties:
 double mean
 double std_dev
 double variance
 int    samples
 
-Ranges are made with Range(min, max) they are used for comparisons using 'in' and 'not in', they will check if every double/average in a table or column is in a certian range, or if an individual double/average is, this has the same semantics as the above comparisons. 
+Ranges are made with Range(min, max), or Distribution(value, tolerance) they are used for comparisons using 'in' and and they will check if every double/average in a table or column is in a certian range, or if an individual double/average is, this has the same semantics as the above comparisons, meaning that it is not possible to have a default error message output for "not in", unfortionatly. 
 
 

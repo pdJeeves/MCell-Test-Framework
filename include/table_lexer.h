@@ -2,7 +2,7 @@
 #define _table_lexer_h_
 #include "file_lexer.h"
 #include <boost/shared_ptr.hpp>
-#include "average.h"
+#include "data_table.hpp"
 #include <map>
 #include "memoized_lexer.hpp"
 

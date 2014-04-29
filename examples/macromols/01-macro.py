@@ -28,8 +28,8 @@
  Date:   2008-04-04
 """
 
-t = McellTest("01-macro.mdl")
-counts = t.reaction_output("counts")
+t = MCellTest("01-macro")
+counts = t['counts']
 counts[0] + counts[1] + counts[2] + counts[3] == 180
 counts[1] + counts[3] + counts[6] == 800
 counts[1] == counts[2]
@@ -37,10 +37,10 @@ counts[0] + counts[1] == counts[4]
 counts[2] + counts[3] == counts[5]
 
 counts.min_time = 0.001
-counts[0] == equilibrium(62.2, 3.0)
-counts[1:2] == equilibrium(30.0, 1.5)
-counts[3] == equilibrium(57.8, 3.0)
-counts[4] == equilibrium(92.1, 4.5)
-counts[5] == equilibrium(87.9, 4.5)
-counts[6] == equilibrium(712.1, 10.0)
+Average(counts[0  ]) in Distribution(62.2, 3.0)
+Average(counts[1:2]) in Distribution(30.0, 1.5)
+Average(counts[3  ]) in Distribution(57.8, 3.0)
+Average(counts[4  ]) in Distribution(92.1, 4.5)
+Average(counts[5  ]) in Distribution(87.9, 4.5)
+Average(counts[6  ]) in Distribution(712.1, 10.0)
 

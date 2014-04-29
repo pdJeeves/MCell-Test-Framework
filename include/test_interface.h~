@@ -33,9 +33,6 @@ public:
 		boost::filesystem::path location = script_scheduler()->get_working_directory();
 		_logfile = (location / std::string("logfile")).native();
 		_errfile = (location / std::string("errfile")).native();
-
-		std::cout << "logfile: " << _logfile << std::endl;
-		std::cout << "errfile: " << _errfile << std::endl;
 	}
 
 	std::string get_logfile() const { return _logfile; }

@@ -17,36 +17,41 @@ run all of the python files in the directory.
 .IP "--query" 
 the query to search keywords in the script files against.
 .SH FILES
-TestMCell has a config file in '~/.config/TestMCell' containing the path to MCell, the location to place MCell's output, the path to the scripts it will run, the location to place their output, and the path to the dependencies of those scripts, all of these must be quoted absolute paths.
+TestMCell has a config file in '~/.config/TestMCell' containing the absolute paths of:
+MCell
+Where to place it's outptut.
+The python scripts to run.
+Where to place their output.
+The extensions of those scripts.
 .P
 When TestMCell is searching for scripts to run it will ignore any file whose path doesn't end with .py or contain """ as the first string in the file.  Everything in this block comment which is between two curly brackets is a keyword.  If a keyword follows the regex [0-9]{4}/[0-9]{2}/[0-9]{2} then it is considered a YYYY/MM/DD date, if there is more than one then the last one found is used.  keywords may contain spaces if they are between single or double quotes.
 .SH QUERY SYNTAX
 Keywords are not case sensitive.
 .br
-Query            ::= OrExpression
+Query             ::= OrExpression
 .br
-OrExpression     ::= XorExpression
-                 |   OrExpression  '|'   XorExpression
+OrExpression      ::= XorExpression
+                  |   OrExpression  '|'   XorExpression
 .br
-                 |   OrExpression  '||'  XorExpression
+                  |   OrExpression  '||'  XorExpression
 .br
-                 |   OrExpression  'or'  XorExpression
+                  |   OrExpression  'or'  XorExpression
 .br
-XorExpression    ::= AndExpression
+XorExpression     ::= AndExpression
 .br
-                 |   XorExpression '^'   AndExpression
+                  |   XorExpression '^'   AndExpression
 .br
-                 |   XorExpression '^^'  AndExpression
+                  |   XorExpression '^^'  AndExpression
 .br
-                 |   XorExpression 'xor' AndExpression
+                  |   XorExpression 'xor' AndExpression
 .br
-AndExpression    ::= PrefixExpression"
+AndExpression     ::= PrefixExpression"
 .br
-                 |   AndExpression '&'   PrefixExpression
+                  |   AndExpression '&'   PrefixExpression
 .br
-                 |   AndExpression '&&'  PrefixExpression
+                  |   AndExpression '&&'  PrefixExpression
 .br
-                 |   AndExpression 'and' PrefixExpression
+                  |   AndExpression 'and' PrefixExpression
 .br
 PrefixExpression  ::= PrefixExpression
 .br
@@ -62,7 +67,7 @@ KeywordExpression ~= [^ ]*
 .br
                   |  "[^"]*"
 .br
-DateExpression ~= [0-9]{4}[-\\/][0-9]{2}[-\\/][0-9]{2}
+DateExpression    ~= [0-9]{4}[-\\/][0-9]{2}[-\\/][0-9]{2}
 .SH BUGS
 It is not capable of determining if the .mdl is more recent without running the python script.
 If more than one thread is used then python syntax errors will cause segfaults.

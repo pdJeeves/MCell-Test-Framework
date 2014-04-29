@@ -42,10 +42,6 @@ typedef std::pair<name##_iterator, name##_iterator> name##_range;
 	int						 _col_count;
 	bool 					 store_time_seperately;
 
-	void set_got_header()
-	{
-		(dynamic_cast<file_lexer*>(super::get_lexer()))->set_got_header();
-	}
 	void push_word(std::string);
 
 	virtual void commit_double() { };

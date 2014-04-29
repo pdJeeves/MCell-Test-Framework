@@ -1,10 +1,13 @@
 #ifndef _average_h_
 #define _average_h_
-#include "operators.h"
-#include "data_table.hpp"
 #include <string>
 #include <vector>
 #include <ostream>
+#include "operators.h"
+
+#ifndef _data_table_h_
+#include "data_table.hpp"
+#endif
 
 using std::vector;
 using std::string;

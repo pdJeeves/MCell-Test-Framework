@@ -14,8 +14,9 @@
   Date:   2008-04-04
 """
 
-t = McellTest("03-macro_surface_listrelease")
-t.reaction_output("counts.txt") == [26, 312, 208, 26, 52]
+t = MCellTest("03-macro_surface_listrelease")
+t['counts'] == [26, 312, 208, 26, 52]
 
 #    t.add_extra_check(CheckListReleasePositions('molecules.ascii.0.dat'))
+#?????
 

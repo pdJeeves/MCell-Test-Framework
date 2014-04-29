@@ -20,8 +20,8 @@
   Date:   2008-04-04
 """
 
-t = McellTest("04-macro_surface_init")
-counts = t.reaction_output("counts.txt")
+t = MCellTest('counts')
+counts = t['counts']
 
 counts[1]  == 12*counts[0]
 counts[1]  == counts[2] + counts[3]*2 + counts[4]
@@ -58,27 +58,27 @@ expect_11 = 2*expect_t + 8*expect_bo + 2*expect_l + 8*expect_r + 5*expect_f + 5*
 expect_total = expect_t + expect_l + expect_f + expect_bo + expect_r + expect_ba
 expect_subunits = 12*expect_total
 
-counts[ 0] == equilibrium(expect_total   , expect_total/10   ) 
-counts[ 1] == equilibrium(expect_subunits, expect_subunits/10)
-counts[ 2] == equilibrium(expect_00      , expect_00/10      )
-counts[ 3] == equilibrium(expect_01      , expect_01/10      )
-counts[ 4] == equilibrium(expect_11      , expect_11/10      )
-counts[ 5] == equilibrium(8*expect_t     , 0.1               )
-counts[ 6] == equilibrium(expect_t       , 0.1               )
-counts[ 7] == equilibrium(2*expect_t     , 0.1               )
-counts[ 8] == equilibrium(2*expect_bo    , 0.1               )
-counts[ 9] == equilibrium(expect_bo      , 0.1               )
-counts[10] == equilibrium(8*expect_bo    , 0.1               )
-counts[11] == equilibrium(8*expect_l     , 1+expect_l        )
-counts[12] == equilibrium(expect_l       , 1+expect_l/8      )
-counts[13] == equilibrium(2*expect_l     , 1+expect_l/4      )
-counts[14] == equilibrium(2*expect_r     , 0.1               )
-counts[15] == equilibrium(expect_r       , 0.1               )
-counts[16] == equilibrium(8*expect_r     , 0.1               )
-counts[17] == equilibrium(5*expect_f     , 1+expect_f        )
-counts[18] == equilibrium(expect_f       , 0.1               )
-counts[19] == equilibrium(5*expect_f     , 1+expect_f        )
-counts[20] == equilibrium(5*expect_ba    , expect_ba         )
-counts[21] == equilibrium(expect_ba      , expect_ba/10      )
-counts[22] == equilibrium(5*expect_ba    , expect_ba         )
+Average(counts[ 0]) in Distribution(expect_total   , expect_total/10   ) 
+Average(counts[ 1]) in Distribution(expect_subunits, expect_subunits/10)
+Average(counts[ 2]) in Distribution(expect_00      , expect_00/10      )
+Average(counts[ 3]) in Distribution(expect_01      , expect_01/10      )
+Average(counts[ 4]) in Distribution(expect_11      , expect_11/10      )
+Average(counts[ 5]) in Distribution(8*expect_t     , 0.1               )
+Average(counts[ 6]) in Distribution(expect_t       , 0.1               )
+Average(counts[ 7]) in Distribution(2*expect_t     , 0.1               )
+Average(counts[ 8]) in Distribution(2*expect_bo    , 0.1               )
+Average(counts[ 9]) in Distribution(expect_bo      , 0.1               )
+Average(counts[10]) in Distribution(8*expect_bo    , 0.1               )
+Average(counts[11]) in Distribution(8*expect_l     , 1+expect_l        )
+Average(counts[12]) in Distribution(expect_l       , 1+expect_l/8      )
+Average(counts[13]) in Distribution(2*expect_l     , 1+expect_l/4      )
+Average(counts[14]) in Distribution(2*expect_r     , 0.1               )
+Average(counts[15]) in Distribution(expect_r       , 0.1               )
+Average(counts[16]) in Distribution(8*expect_r     , 0.1               )
+Average(counts[17]) in Distribution(5*expect_f     , 1+expect_f        )
+Average(counts[18]) in Distribution(expect_f       , 0.1               )
+Average(counts[19]) in Distribution(5*expect_f     , 1+expect_f        )
+Average(counts[20]) in Distribution(5*expect_ba    , expect_ba         )
+Average(counts[21]) in Distribution(expect_ba      , expect_ba/10      )
+Average(counts[22]) in Distribution(5*expect_ba    , expect_ba         )
 

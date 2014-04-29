@@ -2,8 +2,8 @@
 #define _data_table_h_
 #include <boost/filesystem/path.hpp>
 #include <boost/shared_ptr.hpp>
-#include <map>
 #include "data_column.hpp"
+#include <map>
 
 using boost::shared_ptr;
 
@@ -409,7 +409,49 @@ public:
 		return b_string(message.str());
 	}
 
+	template<int Operator>
+	b_string get_list_expression(const boost::python::list & t);
 };
 
 
+#ifndef _average_h_
+#include "average.h"
+#endif
+
+
+template<typename type>
+	template<int Operator>
+	b_string data_table<type>::get_list_expression(const boost::python::list & t)
+	{
+		std::stringstream message;
+		if(super::size() != len(t))
+		{
+			std::cerr << "ERROR: number of things in list does not equal number of columns.";
+		}
+		else
+		{
+
+			for(int i = 0; i < super::size(); ++i)
+			{
+				if(boost::python::extract<long>(t[i]).check())
+				{
+					message << super::at(i).document_comparison(Operator, (double) boost::python::extract<long>(t[i])); 
+				}
+				else if(boost::python::extract<double>(t[i]).check())
+				{
+					message << super::at(i).document_comparison(Operator, boost::python::extract<double>(t[i])); 
+				}
+				else if(boost::python::extract<average>(t[i]).check())
+				{
+					message << super::at(i).document_comparison(Operator, boost::python::extract<average>(t[i])); 
+				}
+				else 
+				{
+					std::cerr << "ERROR: objects in list must be ints, doubles or averages";
+				}
+			}
+		}
+
+		return b_string(message.str());
+	}
 #endif

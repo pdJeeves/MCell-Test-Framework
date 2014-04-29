@@ -1,10 +1,13 @@
 #ifndef _average_h_
 #define _average_h_
-#include "operators.h"
-#include "data_table.hpp"
 #include <string>
 #include <vector>
 #include <ostream>
+#include "operators.h"
+
+#ifndef _data_table_hpp_
+#include "data_table.hpp"
+#endif
 
 using std::vector;
 using std::string;
@@ -28,6 +31,10 @@ public:
 	static average 				create(double m, double s)
 	{
 		return average(m, s);
+	}
+	static average				create_from_col(const data_column<double> & it)
+	{
+		return average(it);
 	}
 	average operator+(const average & a) const;
 	average operator-(const average & a) const;

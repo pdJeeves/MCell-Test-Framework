@@ -67,5 +67,5 @@ REACTION_DATA_OUTPUT
         COUNT[A,WORLD],
         COUNT[A,World.counter_left,ALL_ENCLOSED],
         COUNT[A,World.counter_right,ALL_ENCLOSED]
-    } => countdir & "A.dat" 
+    } => "A.dat" 
 }

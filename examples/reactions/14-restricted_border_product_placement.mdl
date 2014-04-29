@@ -777,28 +777,28 @@ REACTION_DATA_OUTPUT
       COUNT ["E;", world.box_1[r1]]: "r1_E",
       COUNT ["F;", world.box_1[r1]]: "r1_F",
       COUNT ["G;", world.box_1[r1]]: "r1_G"
-   }	=> countdir & "box_1_r1.dat"
+   }	=> "box_1_r1.dat"
 
    {
       COUNT ["D;", world.box_1[r3]]: "r3_D",
       COUNT ["E;", world.box_1[r3]]: "r3_E",
       COUNT ["F;", world.box_1[r3]]: "r3_F",
       COUNT ["G;", world.box_1[r3]]: "r3_G"
-   }	=> countdir & "box_1_r3.dat"
+   }	=> "box_1_r3.dat"
                    
    {
       COUNT ["D;", world.box_2[r2]]: "r2_D",
       COUNT ["E;", world.box_2[r2]]: "r2_E",
       COUNT ["F;", world.box_2[r2]]: "r2_F",
       COUNT ["G;", world.box_2[r2]]: "r2_G"
-   }	=> countdir & "box_2_r2.dat"
+   }	=> "box_2_r2.dat"
 
    {
       COUNT ["D;", world.box_2[r3]]: "r3_D",
       COUNT ["E;", world.box_2[r3]]: "r3_E",
       COUNT ["F;", world.box_2[r3]]: "r3_F",
       COUNT ["G;", world.box_2[r3]]: "r3_G"
-   }	=> countdir & "box_2_r3.dat"
+   }	=> "box_2_r3.dat"
 
 
    {
@@ -806,14 +806,14 @@ REACTION_DATA_OUTPUT
       COUNT ["E;", world.box_3[r1]]: "r1_E",
       COUNT ["F;", world.box_3[r1]]: "r1_F",
       COUNT ["G;", world.box_3[r1]]: "r1_G"
-   }	=> countdir & "box_3_r1.dat"
+   }	=> "box_3_r1.dat"
 
    {
       COUNT ["D;", world.box_3[r2]]: "r2_D",
       COUNT ["E;", world.box_3[r2]]: "r2_E",
       COUNT ["F;", world.box_3[r2]]: "r2_F",
       COUNT ["G;", world.box_3[r2]]: "r2_G"
-   }	=> countdir & "box_3_r2.dat"
+   }	=> "box_3_r2.dat"
                        
 
    {
@@ -821,56 +821,56 @@ REACTION_DATA_OUTPUT
       COUNT ["E;", world.box_4[r1]]: "r1_E",
       COUNT ["F;", world.box_4[r1]]: "r1_F",
       COUNT ["G;", world.box_4[r1]]: "r1_G"
-   }	=> countdir & "box_4_r1.dat"
+   }	=> "box_4_r1.dat"
 
    {
       COUNT ["D;", world.box_4[r2]]: "r2_D",
       COUNT ["E;", world.box_4[r2]]: "r2_E",
       COUNT ["F;", world.box_4[r2]]: "r2_F",
       COUNT ["G;", world.box_4[r2]]: "r2_G"
-   }	=> countdir & "box_4_r2.dat"
+   }	=> "box_4_r2.dat"
    
    {
       COUNT ["D;", world.box_5[r3]]: "r3_D",
       COUNT ["E;", world.box_5[r3]]: "r3_E",
       COUNT ["F;", world.box_5[r3]]: "r3_F",
       COUNT ["G;", world.box_5[r3]]: "r3_G"
-   }	=> countdir & "box_5_r3.dat"
+   }	=> "box_5_r3.dat"
 
    {
       COUNT ["D;", world.box_5[r4]]: "r4_D",
       COUNT ["E;", world.box_5[r4]]: "r4_E",
       COUNT ["F;", world.box_5[r4]]: "r4_F",
       COUNT ["G;", world.box_5[r4]]: "r4_G"
-   }	=> countdir & "box_5_r4.dat"
+   }	=> "box_5_r4.dat"
    
    {
       COUNT ["D;", world.box_6[r1]]: "r1_D",
       COUNT ["E;", world.box_6[r1]]: "r1_E",
       COUNT ["F;", world.box_6[r1]]: "r1_F",
       COUNT ["G;", world.box_6[r1]]: "r1_G"
-   }	=> countdir & "box_6_r1.dat"
+   }	=> "box_6_r1.dat"
 
    {
       COUNT ["D;", world.box_6[r5]]: "r5_D",
       COUNT ["E;", world.box_6[r5]]: "r5_E",
       COUNT ["F;", world.box_6[r5]]: "r5_F",
       COUNT ["G;", world.box_6[r5]]: "r5_G"
-   }	=> countdir & "box_6_r5.dat"
+   }	=> "box_6_r5.dat"
 
    {
       COUNT ["D;", world.box_7[r1]]: "r1_D",
       COUNT ["E;", world.box_7[r1]]: "r1_E",
       COUNT ["F;", world.box_7[r1]]: "r1_F",
       COUNT ["G;", world.box_7[r1]]: "r1_G"
-   }	=> countdir & "box_7_r1.dat"
+   }	=> "box_7_r1.dat"
    
    {
       COUNT ["D;", world.box_7[r3]]: "r3_D",
       COUNT ["E;", world.box_7[r3]]: "r3_E",
       COUNT ["F;", world.box_7[r3]]: "r3_F",
       COUNT ["G;", world.box_7[r3]]: "r3_G"
-   }	=> countdir & "box_7_r3.dat"
+   }	=> "box_7_r3.dat"
 
 
    {
@@ -878,28 +878,28 @@ REACTION_DATA_OUTPUT
       COUNT ["E;", world.box_8[r1]]: "r1_E",
       COUNT ["F;", world.box_8[r1]]: "r1_F",
       COUNT ["G;", world.box_8[r1]]: "r1_G"
-   }	=> countdir & "box_8_r1.dat"
+   }	=> "box_8_r1.dat"
                
    {
       COUNT ["D;", world.box_8[r4]]: "r4_D",
       COUNT ["E;", world.box_8[r4]]: "r4_E",
       COUNT ["F;", world.box_8[r4]]: "r4_F",
       COUNT ["G;", world.box_8[r4]]: "r4_G"
-   }	=> countdir & "box_8_r4.dat"
+   }	=> "box_8_r4.dat"
 
    {
       COUNT ["D;", world.box_9[r1]]: "r1_D",
       COUNT ["E;", world.box_9[r1]]: "r1_E",
       COUNT ["F;", world.box_9[r1]]: "r1_F",
       COUNT ["G;", world.box_9[r1]]: "r1_G"
-   }	=> countdir & "box_9_r1.dat"
+   }	=> "box_9_r1.dat"
 
    {
       COUNT ["D;", world.box_9[r2]]: "r2_D",
       COUNT ["E;", world.box_9[r2]]: "r2_E",
       COUNT ["F;", world.box_9[r2]]: "r2_F",
       COUNT ["G;", world.box_9[r2]]: "r2_G"
-   }	=> countdir & "box_9_r2.dat"
+   }	=> "box_9_r2.dat"
 
 
    {
@@ -907,14 +907,14 @@ REACTION_DATA_OUTPUT
       COUNT ["E;", world.box_10[r1]]: "r1_E",
       COUNT ["F;", world.box_10[r1]]: "r1_F",
       COUNT ["G;", world.box_10[r1]]: "r1_G"
-   }	=> countdir & "box_10_r1.dat"
+   }	=> "box_10_r1.dat"
 
    {
       COUNT ["D;", world.box_10[r2]]: "r2_D",
       COUNT ["E;", world.box_10[r2]]: "r2_E",
       COUNT ["F;", world.box_10[r2]]: "r2_F",
       COUNT ["G;", world.box_10[r2]]: "r2_G"
-   }	=> countdir & "box_10_r2.dat"
+   }	=> "box_10_r2.dat"
 
 
    {
@@ -924,7 +924,7 @@ REACTION_DATA_OUTPUT
       COUNT ["G;", world.box_11[r1]]: "r1_G",
       COUNT ["K;", world.box_11[r1]]: "r1_K",
       COUNT ["L;", world.box_11[r1]]: "r1_L"
-   }	=> countdir & "box_11_r1.dat"
+   }	=> "box_11_r1.dat"
 
    {
       COUNT ["D;", world.box_11[r2]]: "r2_D",
@@ -933,7 +933,7 @@ REACTION_DATA_OUTPUT
       COUNT ["G;", world.box_11[r2]]: "r2_G",
       COUNT ["K;", world.box_11[r2]]: "r2_K",
       COUNT ["L;", world.box_11[r2]]: "r2_L"
-   }	=> countdir & "box_11_r2.dat"
+   }	=> "box_11_r2.dat"
                    
    {
       COUNT ["D;", world.box_12[r6]]: "r6_D",
@@ -942,7 +942,7 @@ REACTION_DATA_OUTPUT
       COUNT ["G;", world.box_12[r6]]: "r6_G",
       COUNT ["K;", world.box_12[r6]]: "r6_K",
       COUNT ["L;", world.box_12[r6]]: "r6_L"
-   }	=> countdir & "box_12_r6.dat"
+   }	=> "box_12_r6.dat"
 
    {
       COUNT ["D;", world.box_12[r5]]: "r5_D",
@@ -951,7 +951,7 @@ REACTION_DATA_OUTPUT
       COUNT ["G;", world.box_12[r5]]: "r5_G",
       COUNT ["K;", world.box_12[r5]]: "r5_K",
       COUNT ["L;", world.box_12[r5]]: "r5_L"
-   }	=> countdir & "box_12_r5.dat"
+   }	=> "box_12_r5.dat"
               
 
    {
@@ -961,7 +961,7 @@ REACTION_DATA_OUTPUT
       COUNT ["G;", world.box_13[r1]]: "r1_G",
       COUNT ["K;", world.box_13[r1]]: "r1_K",
       COUNT ["L;", world.box_13[r1]]: "r1_L"
-   }	=> countdir & "box_13_r1.dat"
+   }	=> "box_13_r1.dat"
                    
    {
       COUNT ["D;", world.box_13[r3]]: "r3_D",
@@ -970,7 +970,7 @@ REACTION_DATA_OUTPUT
       COUNT ["G;", world.box_13[r3]]: "r3_G",
       COUNT ["K;", world.box_13[r3]]: "r3_K",
       COUNT ["L;", world.box_13[r3]]: "r3_L"
-   }	=> countdir & "box_13_r3.dat"
+   }	=> "box_13_r3.dat"
 
 
    {
@@ -980,7 +980,7 @@ REACTION_DATA_OUTPUT
       COUNT ["G;", world.box_14[r1]]: "r1_G",
       COUNT ["K;", world.box_14[r1]]: "r1_K",
       COUNT ["L;", world.box_14[r1]]: "r1_L"
-   }	=> countdir & "box_14_r1.dat"
+   }	=> "box_14_r1.dat"
                    
    {
       COUNT ["D;", world.box_14[r3]]: "r3_D",
@@ -989,7 +989,7 @@ REACTION_DATA_OUTPUT
       COUNT ["G;", world.box_14[r3]]: "r3_G",
       COUNT ["K;", world.box_14[r3]]: "r3_K",
       COUNT ["L;", world.box_14[r3]]: "r3_L"
-   }	=> countdir & "box_14_r3.dat"
+   }	=> "box_14_r3.dat"
 
    {
       COUNT ["D;", world.box_15[r1]]: "r1_D",
@@ -998,7 +998,7 @@ REACTION_DATA_OUTPUT
       COUNT ["G;", world.box_15[r1]]: "r1_G",
       COUNT ["K;", world.box_15[r1]]: "r1_K",
       COUNT ["L;", world.box_15[r1]]: "r1_L"
-   }	=> countdir & "box_15_r1.dat"
+   }	=> "box_15_r1.dat"
                    
    {
       COUNT ["D;", world.box_15[r2]]: "r2_D",
@@ -1007,7 +1007,7 @@ REACTION_DATA_OUTPUT
       COUNT ["G;", world.box_15[r2]]: "r2_G",
       COUNT ["K;", world.box_15[r2]]: "r2_K",
       COUNT ["L;", world.box_15[r2]]: "r2_L"
-   }	=> countdir & "box_15_r2.dat"
+   }	=> "box_15_r2.dat"
 
    {
       COUNT ["D;", world.box_16[r1]]: "r1_D",
@@ -1016,7 +1016,7 @@ REACTION_DATA_OUTPUT
       COUNT ["G;", world.box_16[r1]]: "r1_G",
       COUNT ["K;", world.box_16[r1]]: "r1_K",
       COUNT ["L;", world.box_16[r1]]: "r1_L"
-   }	=> countdir & "box_16_r1.dat"
+   }	=> "box_16_r1.dat"
                    
    {
       COUNT ["D;", world.box_16[r2]]: "r2_D",
@@ -1025,7 +1025,7 @@ REACTION_DATA_OUTPUT
       COUNT ["G;", world.box_16[r2]]: "r2_G",
       COUNT ["K;", world.box_16[r2]]: "r2_K",
       COUNT ["L;", world.box_16[r2]]: "r2_L"
-   }	=> countdir & "box_16_r2.dat"
+   }	=> "box_16_r2.dat"
 
    {
       COUNT ["D;", world.box_17[r1]]: "r1_D",
@@ -1034,7 +1034,7 @@ REACTION_DATA_OUTPUT
       COUNT ["G;", world.box_17[r1]]: "r1_G",
       COUNT ["K;", world.box_17[r1]]: "r1_K",
       COUNT ["L;", world.box_17[r1]]: "r1_L"
-   }	=> countdir & "box_17_r1.dat"
+   }	=> "box_17_r1.dat"
                    
    {
       COUNT ["D;", world.box_17[r2]]: "r2_D",
@@ -1043,7 +1043,7 @@ REACTION_DATA_OUTPUT
       COUNT ["G;", world.box_17[r2]]: "r2_G",
       COUNT ["K;", world.box_17[r2]]: "r2_K",
       COUNT ["L;", world.box_17[r2]]: "r2_L"
-   }	=> countdir & "box_17_r2.dat"
+   }	=> "box_17_r2.dat"
 
    {
       COUNT ["D;", world.box_18[r1]]: "r1_D",
@@ -1052,7 +1052,7 @@ REACTION_DATA_OUTPUT
       COUNT ["G;", world.box_18[r1]]: "r1_G",
       COUNT ["K;", world.box_18[r1]]: "r1_K",
       COUNT ["L;", world.box_18[r1]]: "r1_L"
-   }	=> countdir & "box_18_r1.dat"
+   }	=> "box_18_r1.dat"
                    
    {
       COUNT ["D;", world.box_18[r2]]: "r2_D",
@@ -1061,7 +1061,7 @@ REACTION_DATA_OUTPUT
       COUNT ["G;", world.box_18[r2]]: "r2_G",
       COUNT ["K;", world.box_18[r2]]: "r2_K",
       COUNT ["L;", world.box_18[r2]]: "r2_L"
-   }	=> countdir & "box_18_r2.dat"
+   }	=> "box_18_r2.dat"
 
 
    {
@@ -1071,7 +1071,7 @@ REACTION_DATA_OUTPUT
       COUNT ["G;", world.box_19[r1]]: "r1_G",
       COUNT ["K;", world.box_19[r1]]: "r1_K",
       COUNT ["L;", world.box_19[r1]]: "r1_L"
-   }	=> countdir & "box_19_r1.dat"
+   }	=> "box_19_r1.dat"
                    
    {
       COUNT ["D;", world.box_19[r2]]: "r2_D",
@@ -1080,7 +1080,7 @@ REACTION_DATA_OUTPUT
       COUNT ["G;", world.box_19[r2]]: "r2_G",
       COUNT ["K;", world.box_19[r2]]: "r2_K",
       COUNT ["L;", world.box_19[r2]]: "r2_L"
-   }	=> countdir & "box_19_r2.dat"
+   }	=> "box_19_r2.dat"
 
 
 

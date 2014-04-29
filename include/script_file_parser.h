@@ -23,7 +23,7 @@ typedef key_list::const_iterator       iterator;
 	}
 
 	bool is_valid() const { return _valid; }
-	int get_date() const { return _date; }
+	int get_date()  const { return _date;  }
 
 	std::vector<std::string>::const_iterator begin() const
 	{

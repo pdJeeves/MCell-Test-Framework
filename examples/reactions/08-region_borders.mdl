@@ -65,12 +65,12 @@ REACTION_DATA_OUTPUT
    {
       COUNT ["A;", world.sphere[r1]]: "r1_A",
       COUNT ["A;", world.sphere[r2]]: "r2_A"
-   }	=> countdir & "A.dat"
+   }	=> "A.dat"
 
    {
       COUNT ["C;", world.sphere[r1]]: "r1_C",
       COUNT ["C;", world.sphere[r2]]: "r2_C"
-   }	=> countdir & "C.dat"
+   }	=> "C.dat"
 
    {
      COUNT ["A;", world.sphere[r1], FRONT_HITS]: "A_fr_hits",
@@ -79,7 +79,7 @@ REACTION_DATA_OUTPUT
      COUNT ["C;", world.sphere[r1], FRONT_CROSSINGS]: "C_fr_cross", 
      COUNT ["C;", world.sphere[r1], BACK_CROSSINGS]: "C_back_cross", 
      COUNT ["C;", world.sphere[r1], ALL_CROSSINGS]: "C_all_cross" 
-   } => countdir & "A_hits_C_cross.dat"
+   } => "A_hits_C_cross.dat"
      
 
 }
@@ -89,12 +89,12 @@ REACTION_DATA_OUTPUT
    STEP = dt
    SHOW_EXACT_TIME=OFF
 
-   {TRIGGER["C;", world.sphere[r1], FRONT_HITS]} => countdir & "C_trigger_fr_hits.dat" 
-   {TRIGGER["C;", world.sphere[r1], BACK_HITS]} => countdir & "C_trigger_back_hits.dat" 
-   {TRIGGER["C;", world.sphere[r1], ALL_HITS]} => countdir & "C_trigger_all_hits.dat" 
-   {TRIGGER["C;", world.sphere[r1], FRONT_CROSSINGS]} => countdir & "C_trigger_fr_cross.dat" 
-   {TRIGGER["C;", world.sphere[r1], BACK_CROSSINGS]} => countdir & "C_trigger_back_cross.dat" 
-   {TRIGGER["C;", world.sphere[r1], ALL_CROSSINGS]} => countdir & "C_trigger_all_cross.dat" 
+   {TRIGGER["C;", world.sphere[r1], FRONT_HITS]} => "C_trigger_fr_hits.dat" 
+   {TRIGGER["C;", world.sphere[r1], BACK_HITS]} => "C_trigger_back_hits.dat" 
+   {TRIGGER["C;", world.sphere[r1], ALL_HITS]} => "C_trigger_all_hits.dat" 
+   {TRIGGER["C;", world.sphere[r1], FRONT_CROSSINGS]} => "C_trigger_fr_cross.dat" 
+   {TRIGGER["C;", world.sphere[r1], BACK_CROSSINGS]} => "C_trigger_back_cross.dat" 
+   {TRIGGER["C;", world.sphere[r1], ALL_CROSSINGS]} => "C_trigger_all_cross.dat" 
 
 }
 
@@ -106,7 +106,7 @@ REACTION_DATA_OUTPUT
    {
       COUNT ["B;", world.sphere[r1]]: "r1_B",
       COUNT ["B;", world.sphere[r2]]: "r2_B"
-   }	=> countdir & "B.dat"
+   }	=> "B.dat"
 
 
 }
@@ -118,7 +118,7 @@ REACTION_DATA_OUTPUT
    {
       COUNT ["D;", world.sphere[r2]]: "r2_D",
       COUNT ["E;", world.sphere[r2]]: "r2_E"
-   }	=> countdir & "r2.dat"
+   }	=> "r2.dat"
 
 }
 

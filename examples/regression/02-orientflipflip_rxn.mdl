@@ -69,7 +69,7 @@ REACTION_DATA_OUTPUT
     COUNT[b{1},  world.box_inner]                         : "b_inward",
     COUNT[b{-1}, world.box_inner]                         : "b_outward",
     COUNT[b, WORLD]                                       : "b_total"
-  } => countdir & "counts.txt"
+  } => "counts.dat"
 }
 
 VIZ_OUTPUT

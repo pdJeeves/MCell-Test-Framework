@@ -376,53 +376,53 @@ REACTION_DATA_OUTPUT
   ITERATION_LIST = [[90 TO 100 STEP 1]]
 
   { COUNT [D, world.box_1]: "D"
-  }	=> countdir & "box_1.dat"
+  }	=> "box_1.dat"
 
   { COUNT [D, world.box_2]: "D"
-  }	=> countdir & "box_2.dat"
+  }	=> "box_2.dat"
 
   { COUNT [I, world.box_3]: "I"
-  }	=> countdir & "box_3.dat"
+  }	=> "box_3.dat"
   
   { COUNT [I, world.box_4]: "I"
-  }	=> countdir & "box_4_I.dat"
+  }	=> "box_4_I.dat"
 
   { COUNT [b_A3, world.box_4]: "b_A3"
-  }	=> countdir & "box_4_b_A3.dat"
+  }	=> "box_4_b_A3.dat"
 
   { 
     COUNT [D, world.box_5]: "D",
     COUNT [E, world.box_5]: "E",
     COUNT [F, world.box_5]: "F",
     COUNT [G, world.box_5]: "G"
-  }	=> countdir & "box_5.dat"
+  }	=> "box_5.dat"
  
   { COUNT [D, world.box_6]: "D"
-  }	=> countdir & "box_6.dat"
+  }	=> "box_6.dat"
 
   { COUNT [D, world.box_7]: "D"
-  }	=> countdir & "box_7.dat"
+  }	=> "box_7.dat"
 
   { 
     COUNT [t_A1, world.box_8]: "t_A1",
     COUNT [t_B1, world.box_8]: "t_B1",
     COUNT [t_C1, world.box_8]: "t_C1",
     COUNT [I, world.box_8]: "I"
-  }	=> countdir & "box_8.dat"
+  }	=> "box_8.dat"
 
   { 
     COUNT [t_A1, world.box_9]: "t_A1",
     COUNT [t_B, world.box_9]: "t_B",
     COUNT [t_C, world.box_9]: "t_C",
     COUNT [I, world.box_9]: "I"
-  }	=> countdir & "box_9.dat"
+  }	=> "box_9.dat"
 
   { 
     COUNT [t_A1, world.box_10]: "t_A1",
     COUNT [t_B1, world.box_10]: "t_B1",
     COUNT [t_C, world.box_10]: "t_C",
     COUNT [I, world.box_10]: "I"
-  }	=> countdir & "box_10.dat"
+  }	=> "box_10.dat"
   
   { 
     COUNT [D, world.box_11]: "D",
@@ -430,12 +430,12 @@ REACTION_DATA_OUTPUT
     COUNT [F, world.box_11]: "F",
     COUNT [G, world.box_11]: "G",
     COUNT [H, world.box_11]: "H"
-  }	=> countdir & "box_11.dat"
+  }	=> "box_11.dat"
 
   { 
     COUNT [D, world.box_12]: "D",
     COUNT [E, world.box_12]: "E"
-  }	=> countdir & "box_12.dat"
+  }	=> "box_12.dat"
 
 }
 

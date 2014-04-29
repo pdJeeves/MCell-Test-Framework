@@ -155,7 +155,7 @@ REACTION_DATA_OUTPUT {
     COUNT[I_t,world.main_box]     : "I_t",
     COUNT[I_t2,world.main_box]    : "I_t2",
     COUNT[I_t3,world.main_box]    : "I_t3"
-  }     => countdir & "V_out.dat"
+  }     => "V_out.dat"
   {
     COUNT[fwd_u,WORLD]         : "fwd_u",
     COUNT[fwd_b,WORLD]         : "fwd_b",
@@ -173,5 +173,5 @@ REACTION_DATA_OUTPUT {
     COUNT[rev_t,WORLD]         : "rev_t",
     COUNT[rev_t2,WORLD]        : "rev_t2",
     COUNT[rev_t3,WORLD]        : "rev_t3"
-  }     => countdir & "rxn_out.dat"
+  }     => "rxn_out.dat"
 }

@@ -100,7 +100,7 @@ REACTION_DATA_OUTPUT
     COUNT[llabnonnac, world.boxes.box122L] : "r122L",
     COUNT[llabnonnac, world.boxes.box122R] : "r122R",
     COUNT[llabnonnac, world.boxes.box122L] + COUNT[llabnonnac, world.boxes.box122R] : "r122"
-  } => countdir & "cannonballs.txt"
+  } => "cannonballs.dat"
 }
 
 /*

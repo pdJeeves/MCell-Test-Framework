@@ -53,6 +53,6 @@ INSTANTIATE World OBJECT {
 
 REACTION_DATA_OUTPUT {
         STEP = 1*time_step
-        {COUNT[A,WORLD]}=> countdir & "A_World.dat"
+        {COUNT[A,WORLD]}=> "A_World.dat"
 }
 

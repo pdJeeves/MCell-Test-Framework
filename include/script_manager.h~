@@ -9,8 +9,8 @@
 #include <vector>
 #include <string>
 
-//#include "pcl/pcl.h"
-//#define pipe_data
+#include "pcl/pcl.h"
+#define pipe_data
 
 using std::vector;
 using std::string;
@@ -92,6 +92,7 @@ typedef std::priority_queue<schedule_data, std::vector<schedule_data>, schedule_
 typedef std::list<subprocess_data> plist;
 
 private:
+	static script_manager * _instance;
 #ifdef PCL_H
 		coroutine_t main_thread;
 #endif
@@ -122,7 +123,7 @@ private:
 
 	void insert_path(const path & p)
 	{
-		interface->insert_path(remove_quotes(p.string()).c_str());
+		interface->insert_path(p.native().c_str());
 	}
 
 	void run_scheduled_files();
@@ -136,6 +137,10 @@ public:
 			_instance = new script_manager(new T(argc, argv));
 			atexit(DELETE_INSTANCE);
 		}
+	}
+	static script_manager * instance()
+	{
+		return _instance;
 	}
 	script_manager(script_interface * internal);
 	~script_manager();

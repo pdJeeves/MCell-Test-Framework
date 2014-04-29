@@ -1,5 +1,6 @@
 #ifndef _range_hpp_
 #define _range_hpp_
+#include "data_column.hpp"
 #include "b_string.h"
 
 class TestRange
@@ -19,6 +20,7 @@ private:
 			ret << ", should be outside of ";
 		}
 		ret << _min << " and " << _max;
+		std::cout << ret.str() << std::endl; 
 		return b_string(ret.str());
 	}
 
@@ -29,10 +31,16 @@ public:
 		_max = max;
 	}
 
+	static TestRange CreateDistribution(double value, double tolerance)
+	{
+		return TestRange(value-tolerance, value+tolerance);
+	}
+
 	template<typename T, bool test_type>
 	b_string does_contain(T s)
 	{
-		if((_min < s && s < _max) ^ test_type)
+		std::cout << "in Range::does_contain<T>()\n";
+		if((_min < s && s < _max) != test_type)
 		{
 			std::stringstream ret;
 			ret << "\nvalue is " << s;
@@ -43,17 +51,22 @@ public:
 	}
 
 	template<typename T, bool test_type>
-	b_string does_contain_vec(const std::vector<T> & vec)
+	b_string does_contain_vec(const data_column<T> & vec)
 	{
+		std::cout << "in Range::does_contain_vec<T>()\n";
+
 		T min, max;
 		min = max = vec[0];
 		for(int i = 0; i < vec.size(); ++i)
 		{
 			min = vec[i] < min? vec[i] : min;
-			max = vec[i] < max? vec[i] : max;
+			max = max < vec[i]? vec[i] : max;
 		}
 
-		if((_min < min && max < _max) ^ test_type)
+		std::cout << _min << " < " << min << " && " << max << " < " << _max << std::endl;
+		bool temp = (_min < min && max < _max);
+		std::cout << temp << " != "  << test_type << std::endl;
+		if((_min < min && max < _max) != test_type)
 		{
 			std::stringstream ret;
 			ret << "values range from " << min << " to " << max;
@@ -63,6 +76,8 @@ public:
 		return b_string();
 	}
 };
+
+
 
 
 #endif

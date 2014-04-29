@@ -230,5 +230,5 @@ REACTION_DATA_OUTPUT
     COUNT["camkii_subunitB,", world.mainbox.inner]                                    : "Bd",
     COUNT["camkii_subunitB'", world.mainbox.inner]                                    : "Bu",
     COUNT[cam, WORLD]                                                                 : "cam"
-  } => countdir & "counts.dat"
+  } => "counts.dat"
 }

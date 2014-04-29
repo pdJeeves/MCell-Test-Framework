@@ -14,8 +14,6 @@ public:
 
 	token MOVE fetch_token();
 
-	void set_got_header();
-
 private:
 	bool _have_header;
 

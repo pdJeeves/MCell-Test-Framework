@@ -16,7 +16,7 @@ public:
 	PyObject * sys_path;
 
 	void run_script(const char * path);
-
+	void import_class_(PyObject *, const char * name);
 	void insert_path(const char * path);
 };
 

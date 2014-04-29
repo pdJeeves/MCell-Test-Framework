@@ -100,12 +100,14 @@ public:
 
 	data_column<type> get_numbered_item(int i)
 	{
-		if(0 < i && i < super::size())
+		if(0 <= i && i < super::size())
 		{
 				return super::at(i);
 		}
 
-		std::cerr << "Error: tried to select invalid index " << i;
+		PyErr_SetString(PyExc_StopIteration, "Error: tried to get invalid index");
+		boost::python::throw_error_already_set();
+
 		return data_column<type>("invalid", _stem);
 	}
 
@@ -138,6 +140,7 @@ public:
 
 		return ret;
 	}
+
 
 #define basic_operation(token)\
 	template<typename T, typename return_type = type>\
@@ -352,7 +355,7 @@ public:
 	}
 
 	template<int Operator, typename T>
-	b_string get_expression(T t)
+	b_string get_basic_expression(T t)
 	{
 		std::stringstream message;
 

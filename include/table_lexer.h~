@@ -1,9 +1,10 @@
 #ifndef _table_lexer_h_
 #define _table_lexer_h_
+#include "file_lexer.h"
 #include <boost/shared_ptr.hpp>
-#include "../support/average.h"
+#include "average.h"
 #include <map>
-#include "../parser/memoized_lexer.hpp"
+#include "memoized_lexer.hpp"
 
 using boost::shared_ptr;
 
@@ -41,6 +42,10 @@ typedef std::pair<name##_iterator, name##_iterator> name##_range;
 	int						 _col_count;
 	bool 					 store_time_seperately;
 
+	void set_got_header()
+	{
+		(dynamic_cast<file_lexer*>(super::get_lexer()))->set_got_header();
+	}
 	void push_word(std::string);
 
 	virtual void commit_double() { };

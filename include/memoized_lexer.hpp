@@ -9,10 +9,12 @@ private:
 	lexer_interface<token_type> * _self;	
 	token_type      _peek[lookahead];
 	int				_loc;
+	int				_length;
 
 public:
 	memoized_lexer()
 	{
+		_length = lookahead;
 		_self = NULL;
 		_loc = 0;
 	}
@@ -42,10 +44,14 @@ public:
 			_peek[i] = _self->fetch_token();
 		}
 	}
+	lexer_interface<token_type> * get_lexer()
+	{
+		return _self;
+	}
 
 	bool good()
 	{
-		return !(_peek[_loc].is_EOF());
+		return _length;
 	}
 	token_type & cur()
 	{
@@ -57,9 +63,20 @@ public:
 	}
 	bool advance()
 	{
-		_peek[_loc] = _self->fetch_token();
+		if(_length == lookahead)
+		{
+			_peek[_loc] = _self->fetch_token();
+			if(_peek[_loc].is_EOF())
+			{
+				--_length;
+			}
+		}
+		else
+		{
+			--_length;
+		}
 		_loc = (_loc + 1) % lookahead;
-		return !_peek[_loc].is_EOF();
+		return good();
 	}
 	void seek(int N = 1)
 	{

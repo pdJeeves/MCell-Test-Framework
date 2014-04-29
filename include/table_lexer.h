@@ -1,5 +1,6 @@
 #ifndef _table_lexer_h_
 #define _table_lexer_h_
+#include "file_lexer.h"
 #include <boost/shared_ptr.hpp>
 #include "average.h"
 #include <map>

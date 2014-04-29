@@ -9,8 +9,8 @@
 #include <vector>
 #include <string>
 
-//#include "pcl/pcl.h"
-//#define pipe_data
+#include "pcl.h"
+#define pipe_data
 
 using std::vector;
 using std::string;
@@ -123,7 +123,7 @@ private:
 
 	void insert_path(const path & p)
 	{
-		interface->insert_path(remove_quotes(p.string()).c_str());
+		interface->insert_path(p.native().c_str());
 	}
 
 	void run_scheduled_files();

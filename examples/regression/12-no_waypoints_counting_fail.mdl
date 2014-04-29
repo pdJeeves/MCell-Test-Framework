@@ -116,5 +116,5 @@ REACTION_DATA_OUTPUT
         COUNT ["A,,", test.my_triangle[r1]],
         COUNT ["B,,", test.my_triangle[r1]],
         COUNT ["C,,", test.my_triangle[r1]]
-     } => countdir & "counts.txt" 
+     } => "counts.dat" 
 }

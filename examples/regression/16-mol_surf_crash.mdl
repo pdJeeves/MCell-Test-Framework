@@ -77,6 +77,6 @@ INSTANTIATE world OBJECT
  */
 REACTION_DATA_OUTPUT {
     STEP = 1e-5
-    {COUNT [Ca,world.sample[reg],ESTIMATE_CONCENTRATION]} => countdir & "./conc_Ca.dat"
-    {COUNT [B,world.sample[reg],ESTIMATE_CONC]} => countdir & "./conc_B.dat"
+    {COUNT [Ca,world.sample[reg],ESTIMATE_CONCENTRATION]} => "./conc_Ca.dat"
+    {COUNT [B,world.sample[reg],ESTIMATE_CONC]} => "./conc_B.dat"
 }

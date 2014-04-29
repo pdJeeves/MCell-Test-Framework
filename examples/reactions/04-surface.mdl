@@ -360,7 +360,7 @@ REACTION_DATA_OUTPUT {
     COUNT[B_vbt,WORLD]    : "B_vbt",
     COUNT[B_vb2,WORLD]    : "B_vb2",
     COUNT[B_vbt2,WORLD]   : "B_vbt2"
-  }     => countdir & "V_out.dat"
+  }     => "V_out.dat"
   {
     COUNT[fwd_u,WORLD]         : "fwd_u",
     COUNT[fwd_b,WORLD]         : "fwd_b",
@@ -380,12 +380,12 @@ REACTION_DATA_OUTPUT {
     COUNT[rev_vbt,WORLD]       : "rev_vbt",
     COUNT[rev_vb2,WORLD]       : "rev_vb2",
     COUNT[rev_vbt2,WORLD]      : "rev_vbt2"
-  }     => countdir & "rxn_out.dat"
+  }     => "rxn_out.dat"
 
   {
     COUNT[A_u,WORLD]    : "A_u",
     COUNT[C_u,WORLD]   : "C_u"
-  }     => countdir & "b13_u_out.dat"
+  }     => "b13_u_out.dat"
 
   {
     COUNT[fwd_AC_u1,WORLD]        : "fwd_AC_u1",
@@ -394,12 +394,12 @@ REACTION_DATA_OUTPUT {
     COUNT[rev_AC_u2,WORLD]        : "rev_AC_u2",
     COUNT[fwd_AC_u3,WORLD]        : "fwd_AC_u3",
     COUNT[rev_AC_u3,WORLD]        : "rev_AC_u3"
-  }     => countdir & "b13_u_rxn_out.dat"
+  }     => "b13_u_rxn_out.dat"
  
   {
     COUNT[D_u,WORLD]    : "D_u",
     COUNT[E_u,WORLD]   : "E_u"
-  }     => countdir & "b14_u_out.dat"
+  }     => "b14_u_out.dat"
 
   {
     COUNT[fwd_DE_u1,WORLD]        : "fwd_DE_u1",
@@ -408,14 +408,14 @@ REACTION_DATA_OUTPUT {
     COUNT[rev_DE_u2,WORLD]        : "rev_DE_u2",
     COUNT[fwd_DE_u3,WORLD]        : "fwd_DE_u3",
     COUNT[rev_DE_u3,WORLD]        : "rev_DE_u3"
-  }     => countdir & "b14_u_rxn_out.dat"
+  }     => "b14_u_rxn_out.dat"
 
 
             
   {
     COUNT[F_u,WORLD]    : "F_u",
     COUNT[G_u,WORLD]   : "G_u"
-  }     => countdir & "b15_u_out.dat"
+  }     => "b15_u_out.dat"
 
   {
     COUNT[fwd_FG_u1,WORLD]        : "fwd_FG_u1",
@@ -424,18 +424,18 @@ REACTION_DATA_OUTPUT {
     COUNT[rev_FG_u2,WORLD]        : "rev_FG_u2",
     COUNT[fwd_FG_u3,WORLD]        : "fwd_FG_u3",
     COUNT[rev_FG_u3,WORLD]        : "rev_FG_u3"
-  }     => countdir & "b15_u_rxn_out.dat"
+  }     => "b15_u_rxn_out.dat"
                    
   {
     COUNT[fwd_AC_b1,WORLD]        : "fwd_AC_b1",
     COUNT[fwd_AC_b2,WORLD]        : "fwd_AC_b2",
     COUNT[fwd_AC_b3,WORLD]        : "fwd_AC_b3"
-  }    => countdir & "b16_b_rxn_out.dat"         
+  }    => "b16_b_rxn_out.dat"         
 
   {
     COUNT[fwd_EF_b1,WORLD]        : "fwd_EF_b1",
     COUNT[fwd_EF_b2,WORLD]        : "fwd_EF_b2",
     COUNT[fwd_EF_b3,WORLD]        : "fwd_EF_b3"
-  }    => countdir & "b17_b_rxn_out.dat"         
+  }    => "b17_b_rxn_out.dat"         
 }
 

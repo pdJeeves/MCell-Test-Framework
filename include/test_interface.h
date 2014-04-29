@@ -8,7 +8,7 @@
 //current dir - where we put files
 //so only need to know working.
 
-extern int get_least_edit_distance(const std::string & a, const std::string & b);
+extern int least_edit_distance(const std::string & a, const std::string & b);
 
 template<typename T>
 class test_interface
@@ -30,24 +30,22 @@ public:
 		_return_code = 0;
 		_signal_code = 0;
 
-		boost::filesystem::path location = script_scheduler()->get_current_directory();
-		location /= "std";
-		_logfile = location.native();
-		_errfile = _logfile + "err";
-		_logfile += "out";
+		boost::filesystem::path location = script_scheduler()->get_working_directory();
+		_logfile = (location / std::string("logfile")).native();
+		_errfile = (location / std::string("errfile")).native();
 	}
 
-	int get_logfile() const { return _logfile; }
-	int get_errfile() const { return _errfile; }
+	std::string get_logfile() const { return _logfile; }
+	std::string get_errfile() const { return _errfile; }
 
 	int get_return_code() const { return _return_code; }
-	int get_singal_code() const { return _signal_code; }
+	int get_signal_code() const { return _signal_code; }
 
 	data_table<T> GetOutput(std::string name)
 	{
 		if(_loaded.empty())
 		{
-			return NULL;
+			return data_table<T>(name);
 		}
 
 		int cur = 0;
@@ -55,7 +53,7 @@ public:
 
 		for(int i = 0; i < _loaded.size() && min != 0; ++i)
 		{
-			int temp = least_edit_distance(name, _loaded[i].name);
+			int temp = least_edit_distance(name, _loaded[i].get_name());
 
 			if(temp < min)
 			{
@@ -66,10 +64,10 @@ public:
 
 		if(((double) min / name.size()) < 1)
 		{
-			return data_table<T>(_loaded[cur].second);
+			return _loaded[cur];
 		}
 		
-		return NULL;
+		return data_table<T>(name);
 	}
 };
 

@@ -24,8 +24,11 @@ public:
 	average(const vector<double> &);
 
 //non-template functions
-	static std::vector<average> list_from_table(const data_table<double> & it);
-
+	static data_column<average> list_from_table(const data_table<double> & it);
+	static average 				create(double m, double s)
+	{
+		return average(m, s);
+	}
 	average operator+(const average & a) const;
 	average operator-(const average & a) const;
 	average operator-()                  const { return average(-mean, std_dev, samples); };
@@ -72,7 +75,7 @@ public:
 
 	bool operator<(const average & d) const 
 	{ 
-		return (mean + std_dev) < (d.mean + d.std_dev);
+		return mean < d.mean;
 	}
 
 };

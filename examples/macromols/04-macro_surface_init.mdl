@@ -137,5 +137,5 @@ REACTION_DATA_OUTPUT
       COUNT[SUBUNIT{camkii : camkii_subunit' [dimer_partner == camkii_subunit']}, world.mainbox.b[back]]   : "00B",
       COUNT[SUBUNIT{camkii : camkii_subunit' [dimer_partner == camkii_subunit,]}, world.mainbox.b[back]]   : "01B",
       COUNT[SUBUNIT{camkii : camkii_subunit, [dimer_partner == camkii_subunit,]}, world.mainbox.b[back]]   : "11B"
-    } => "counts.txt"
+    } => "counts.dat"
 }

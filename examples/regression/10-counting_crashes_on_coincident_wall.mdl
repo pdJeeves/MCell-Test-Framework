@@ -63,5 +63,5 @@ INSTANTIATE world OBJECT {
 REACTION_DATA_OUTPUT {
   OUTPUT_BUFFER_SIZE = 100
   STEP = 1e-6
-  {COUNT[a,world.cracker,ALL_HITS]} => countdir & "poly_w_cracker.txt"
+  {COUNT[a,world.cracker,ALL_HITS]} => "poly_w_cracker.dat"
 }

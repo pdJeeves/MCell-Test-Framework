@@ -25,6 +25,6 @@ INSTANTIATE world OBJECT {
 REACTION_DATA_OUTPUT
 {
   STEP = 1e-6
-  {COUNT ["A'", world.boxy[ALL]]} => countdir & "Ap.dat"
-  {COUNT ["A,", world.boxy[ALL]]} => countdir & "An.dat"
+  {COUNT ["A'", world.boxy[ALL]]} => "Ap.dat"
+  {COUNT ["A,", world.boxy[ALL]]} => "An.dat"
 }

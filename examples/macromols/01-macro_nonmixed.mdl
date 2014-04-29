@@ -134,5 +134,5 @@ REACTION_DATA_OUTPUT
       COUNT[camkii_subunit, WORLD]                                                      : "us",
       COUNT[camkii_subunitB, WORLD]                                                     : "bs",
       COUNT[cam, WORLD]                                                                 : "cam"
-    }  => countdir & "counts.dat"
+    }  => "counts.dat"
 }

@@ -1,5 +1,6 @@
 #ifndef _range_hpp_
 #define _range_hpp_
+#include "data_column.hpp"
 #include "b_string.h"
 
 class TestRange
@@ -29,13 +30,17 @@ public:
 		_max = max;
 	}
 
+	static TestRange CreateDistribution(double value, double tolerance)
+	{
+		return TestRange(value-tolerance, value+tolerance);
+	}
+
 	template<typename T, bool test_type>
 	b_string does_contain(T s)
 	{
-		if((_min < s && s < _max) ^ test_type)
+		if((_min < s && s < _max) != test_type)
 		{
 			std::stringstream ret;
-			ret << "\nvalue is " << s;
 			return get_b_string(ret, test_type);
 		}
 
@@ -43,7 +48,7 @@ public:
 	}
 
 	template<typename T, bool test_type>
-	b_string does_contain_vec(const std::vector<T> & vec)
+	b_string does_contain_vec(const data_column<T> & vec)
 	{
 		T min, max;
 		min = max = vec[0];
@@ -53,16 +58,18 @@ public:
 			max = max < vec[i]? vec[i] : max;
 		}
 
-		if((_min < min && max < _max) ^ test_type)
+		bool temp = (_min < min && max < _max);
+		if((_min < min && max < _max) != test_type)
 		{
 			std::stringstream ret;
-			ret << "values range from " << min << " to " << max;
 			return get_b_string(ret, test_type);
 		}
 
 		return b_string();
 	}
 };
+
+
 
 
 #endif

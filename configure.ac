@@ -46,4 +46,5 @@ AC_CHECK_FUNCS(sigaction)
 AC_CHECK_FUNCS(longjmp setjmp)
 AC_CHECK_FUNCS(sigaltstack)
 
-AC_OUTPUT(Makefile src/Makefile man/Makefile)
+AC_OUTPUT(Makefile)
+

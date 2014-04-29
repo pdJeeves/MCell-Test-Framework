@@ -73,5 +73,5 @@ INSTANTIATE world OBJECT {
 
 REACTION_DATA_OUTPUT {
     STEP = 1*dt
-    {COUNT["S1,",world.box[all]]}=> countdir & "./S1_down.dat"
+    {COUNT["S1,",world.box[all]]}=> "./S1_down.dat"
 }

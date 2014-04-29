@@ -327,23 +327,23 @@ REACTION_DATA_OUTPUT
    
                                 
    { COUNT [D, world.box_1]: "D"
-   }	=> countdir & "box_1.dat"
+   }	=> "box_1.dat"
         
 
    { COUNT [D, world.box_2]: "D"
-   }	=> countdir & "box_2.dat"
+   }	=> "box_2.dat"
 
    { COUNT [D, world.box_3]: "D"
-   }	=> countdir & "box_3.dat"
+   }	=> "box_3.dat"
 
    { COUNT [D, world.box_4]: "D"
-   }	=> countdir & "box_4.dat"
+   }	=> "box_4.dat"
    
    { COUNT [D, world.box_6]: "D"
-   }	=> countdir & "box_6.dat"
+   }	=> "box_6.dat"
 
    { COUNT [D, world.box_7]: "D"
-   }	=> countdir & "box_7.dat"
+   }	=> "box_7.dat"
    
 }
 
@@ -354,10 +354,10 @@ REACTION_DATA_OUTPUT
   ITERATION_LIST = [[90 TO 100 STEP 1]]
    
   { COUNT [D, world.box_5]: "D"
-  }	=> countdir & "box_5.dat"
+  }	=> "box_5.dat"
 
    { COUNT [D, world.box_8]: "D"
-   }	=> countdir & "box_8.dat"
+   }	=> "box_8.dat"
 
 }
 

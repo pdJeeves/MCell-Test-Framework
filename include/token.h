@@ -6,36 +6,6 @@
 #include <iomanip>
 #include <string>
 
-#define basic_constructor()\
-	_line      = line;\
-   	_col       = col;\
-   	_tab       = tab;\
-	_num       = 0;\
-	_flags     = 0;\
-	_type      = 0;\
-	_integer   = 0;
-
-#define copy_constructor()\
-	_line      = it._line;\
-   	_col       = it._col;\
-   	_tab       = it._tab;\
-	_num       = it._num;\
-	_flags     = it._flags;\
-	_type      = it._type;\
-	_integer   = it._integer;\
-	_self      = it._self;
-
-#if __cplusplus > 201103L
-#define define_constructors(NAME)\
-	NAME (int line, int col, int tab) { basic_constructor() }\
-	NAME (const NAME &  it)           { copy_constructor()  }\
-	NAME (const NAME && it)           { copy_constructor()  }
-#else
-#define define_constructors(NAME)\
-	NAME (int line, int col, int tab) { basic_constructor() }\
-	NAME (const NAME &  it)           { copy_constructor()  }
-#endif
-
 template<typename Derived>
 class token_interface 
 {
@@ -50,7 +20,36 @@ public:
 		_type   = -1;
 		_integer  =  0;
 	}
-	define_constructors(token_interface)
+	token_interface(int line, int col, int tab)
+	{
+		_line      = line;
+   		_col       = col;
+   		_tab       = tab;
+		_num       = 0;
+		_flags     = 0;
+		_type      = 0;
+		_integer   = 0;
+	}
+
+	token_interface(const token_interface & it)
+	{
+		_line      = it._line;
+	   	_col       = it._col;
+	   	_tab       = it._tab;
+		_num       = it._num;
+		_flags     = it._flags;
+		_type      = it._type;
+		if(_type == Double)
+		{
+			_double = it._double;
+		}
+		else
+		{
+			_integer  = it._integer;
+		}
+		_integer   = it._integer;
+		_self      = it._self;
+	}
 
 	virtual ~token_interface()
 	{
@@ -63,7 +62,14 @@ public:
 
 		_flags  = it._flags;
 		_type   = it._type;
-		_integer  = it._integer;
+		if(_type == Double)
+		{
+			_double = it._double;
+		}
+		else
+		{
+			_integer  = it._integer;
+		}
 		_self     = it._self;
 
 		return *(static_cast<Derived *>(this));
@@ -242,74 +248,13 @@ public:
 		;
 	}
     int           get_character()   const { return _integer; }
-  	utf_string    get_utf_string()  const { return _self; }
-	std::string	  to_string()       const
-	{
-		if(_type == String)
-		{
-			return _self;
-		}
-
-		char buffer[32];
-		if(is_integer())
-		{
-			if(_integer < 128)
-			{
-				buffer[0] = _integer;
-				buffer[1] = 0;
-			}
-		}
-		else if(is_integer())
-		{
-			sprintf(buffer, "%lld", _integer);
-		}
-		else if(is_double())
-		{
-			sprintf(buffer, "%Lg", _double);
-		}
-
-		return std::string(buffer);
-	}
+	std::string	  to_string()       const { return _self; }
 
 /** implied getters */
 	operator long long int( void )  const { return get_integer(); }
 	operator long double  ( void )  const { return get_double();  }
-	operator utf_string   ( void )  const { return get_utf_string(); }
 	operator std::string  ( void )  const { return to_string(); }
 
-/** get the parse data of this node */
-	std::string    get_parse_data() const
-	{
-		if(_num < 0)            { return std::string("EOF");              }
-
-		std::stringstream ret;
-
-		ret << "line: " << std::setw(4) << _line
-			<< "col: " << std::setw(4) << _col
-			<< "tabs: " << std::setw(4) << _tab
-			<< "value: ";
-
-		if(is_operator())       { ret << ((const char *) &_integer); }
-		else if(is_character()) { ret << ((point)  _integer);        }
-		else if(is_integer())   { ret << _integer;                   }
-		else if(is_double())    { ret << _double;                    }
-		else if(is_string())    { ret << _self;                      }
-
-		return ret.str();
-	}
-
-/** set the given bitflag i to true and all others to false. */
-	Derived &     set_flag     (int i)
-	{
-		_flags = i;
-		return *(static_cast<Derived *>(this));
-	}
-/** set the given bitflag i to true or false. */
-	Derived &     set_flag     (int i, bool value)
-	{
-		_flags = value? _flags | i : _flags & ~i; 
-		return *(static_cast<Derived *>(this));
-	}
 /** set type to operator, (needs to be < 4 characters) */
 	Derived &     set_operator (int op)
 	{
@@ -323,16 +268,10 @@ public:
 		return set_operator(int_from_string(op));
 	}
 /** set type to character and value to i */
-	Derived &     set_string   (const utf_string & vec)
+	Derived &     set_string   (const std::string & vec)
 	{
 		_type = String;
-
-		_self.clear();
-		for(uint i = 0; i < vec.size(); ++i)
-		{
-			_self += (char) vec[i];
-		}
-
+		_self = vec;
 		return *(static_cast<Derived *>(this));
 	}
 /** set type to character and value to i */

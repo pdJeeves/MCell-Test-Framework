@@ -161,17 +161,17 @@ REACTION_DATA_OUTPUT
      (COUNT [A, world.b1.box_out] - COUNT [A, world.b1.box_in]): "A_diff",
      (COUNT [B, world.b1.box_out] - COUNT [B, world.b1.box_in]): "B_diff",
      (COUNT [C, world.b1.box_out] - COUNT [C, world.b1.box_in]): "C_diff"
-   } => countdir & "refl.dat"
+   } => "refl.dat"
    {
      (COUNT [A, world.b2.box_out] - COUNT [A, world.b2.box_in]): "A_diff",
      (COUNT [B, world.b2.box_out] - COUNT [B, world.b2.box_in]): "B_diff",
      (COUNT [C, world.b2.box_out] - COUNT [C, world.b2.box_in]): "C_diff"
-   } => countdir & "transp.dat"
+   } => "transp.dat"
    {
      (COUNT [A, world.b3.box_out] - COUNT [A, world.b3.box_in]): "A_diff",
      (COUNT [B, world.b3.box_out] - COUNT [B, world.b3.box_in]): "B_diff",
      (COUNT [C, world.b3.box_out] - COUNT [C, world.b3.box_in]): "C_diff"
-   } => countdir & "absorp.dat"
+   } => "absorp.dat"
 
 
 }

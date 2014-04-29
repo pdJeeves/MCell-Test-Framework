@@ -55,7 +55,7 @@ REACTION_DATA_OUTPUT
     COUNT[g, WORLD]     : "g",
     COUNT[m, WORLD]     : "m",
     COUNT[m, world.box] : "mi"
-  } => countdir & "molecules.txt"
+  } => "molecules.dat"
 }
 
 VIZ_OUTPUT

@@ -37,7 +37,7 @@ DEFINE_MOLECULES
 
 DEFINE_REACTIONS
 {
-   A; -> B; ["28-A_B_rates.txt"] 
+   A; -> B; ["28-A_B_rates.dat"] 
 }
 
 box BOX
@@ -61,7 +61,7 @@ INSTANTIATE world OBJECT
 REACTION_DATA_OUTPUT
 {
    STEP = dt
-   {COUNT [B, WORLD]} => countdir & "B_World.dat"
+   {COUNT [B, WORLD]} => "B_World.dat"
 }
 
 

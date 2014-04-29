@@ -71,7 +71,7 @@ INSTANTIATE world OBJECT
 REACTION_DATA_OUTPUT
 {
    STEP = dt
-   { COUNT [A, world.outer[whole_mesh], ALL_ENCLOSED] } => countdir & "A.dat"
+   { COUNT [A, world.outer[whole_mesh], ALL_ENCLOSED] } => "A.dat"
 
 }
 

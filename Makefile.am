@@ -1,12 +1,10 @@
 AUTOMAKE_OPTIONS = foreign
 man_MANS = man/TestMCell
 
-INCLUDES = -I$(srcdir)/../include
+INCLUDES = -I$(srcdir)/include
 
 bin_PROGRAMS = TestMCell
 TestMCell_SOURCES = src/average.cpp src/b_string.cpp src/config.cpp src/data_column.cpp src/data_table.cpp src/double_table_reader.cpp src/file_lexer.cpp src/main.cpp src/MCellInstance.cpp src/MCell_test.cpp src/pcl.c src/pcl_private.c src/pcl_version.c src/python_interface.cpp src/query_parser.cpp src/scanner_base.cpp src/script_file_parser.cpp src/script_manager.cpp src/table_lexer.cpp src/test_interface.cpp
-TestMCell_LDFLAGS = -version-info 1:0 -lpthread 
-
 AM_CPPFLAGS = $(BOOST_CPPFLAGS)
 AM_LDFLAGS = $(LDFLAGS_BOOST) \
     $(LDFLAGS_BOOST_LIBS)

@@ -1,7 +1,7 @@
 #include <boost/filesystem.hpp>
 #include "python_interface.hpp"
-#include "support/platform.h"
-#include "support/config.h"
+#include "platform.h"
+#include "config.hpp"
 #include "script_manager.h"
 #include <fstream>
 
@@ -15,9 +15,9 @@
 
 script_manager * script_manager::_instance = NULL;
 
-script_manager * script_scheduler()
+scheduler_interface * script_scheduler()
 {
-	return script_manager::_instance;
+	return script_manager::instance();
 }
 
 script_manager::script_manager(script_interface * internal)
@@ -68,13 +68,15 @@ void script_manager::block(p_data a, int & ret_code, int & sig_code)
 		_close(_std_err);
 
 		std::string std_out = out_current;
-		std::string w_dir = working_dir;
+		boost::filesystem::path c_dir = current_dir;
+		boost::filesystem::path w_dir = working_dir;
 #endif
 		co_call(main_thread);
 #ifdef pipe_data
 
 		out_current = std_out;
 		working_dir = w_dir;
+		current_dir = c_dir;
 
 		_std_out = _dup(STDOUT_FILENO);
 		_std_err = _dup(STDERR_FILENO);
@@ -229,9 +231,9 @@ void script_manager::execute(const char * path)
 
 		_dup2(_fileno(out), STDOUT_FILENO);
 		_dup2(_fileno(out), STDERR_FILENO);
-#endif
+
 		interface->run_script(path);
-#ifdef pipe_data
+
 		fflush(out);
 		fclose(out);
 
@@ -244,19 +246,20 @@ void script_manager::execute(const char * path)
 		print_file(out_current.c_str());
 	}
 	else
-	{
-		interface->run_script((char *) data);
-	}
 #endif
+	{
+		interface->run_script(path);
+	}
 };
 
 void script_manager::run_scheduled_files()
 {
 	while(_schedule.size())
 	{
-		working_dir = _schedule.top()._working;
-		out_current = _schedule.top()._output.native();
+		working_dir   = _schedule.top()._working;
+		out_current   = _schedule.top()._output.native();
 		std::string f = _schedule.top()._file.native();
+		current_dir   = _schedule.top()._file.parent_path();
 
 		_schedule.pop();
 

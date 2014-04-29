@@ -100,7 +100,7 @@ REACTION_DATA_OUTPUT
    {
      COUNT [A, world.box_1] -
      COUNT [A, world.box_2]
-   } => countdir & "./A.dat"
+   } => "./A.dat"
 
 }
 

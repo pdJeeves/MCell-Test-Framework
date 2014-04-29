@@ -64,5 +64,5 @@ REACTION_DATA_OUTPUT
     COUNT[a000{1},  world.box000] : "a000+",
     COUNT[a000{-1}, world.box000] : "a000-",
     COUNT[flippy,   world.box000] : "flippy"
-  } => countdir & "counts.txt"
+  } => "counts.dat"
 }

@@ -1,5 +1,6 @@
 #ifndef _data_column_hpp_
 #define _data_column_hpp_
+#include <boost/python.hpp>
 #include <boost/python/slice.hpp>
 #include <sstream>
 #include "b_string.h"
@@ -35,17 +36,18 @@ public:
 
 	type get_numbered_item(int i)
 	{
-		if(0 < i && i < super::size())
+		if(0 <= i && i < super::size())
 		{
 			return super::at(i);
 		}
 
-		std::cerr << "ERROR: tried to get invalid index " << i;
-	
+		PyErr_SetString(PyExc_StopIteration, "ERROR: tried to get invalid index ");
+		boost::python::throw_error_already_set();
+
 		type ret;
 		return ret;
 	}
-
+	
 //ARGH!
 	data_column<type> get_slice(const boost::python::slice & s)
 	{
@@ -156,7 +158,13 @@ public:
 	}
 
 	template<int Operator, typename T>
-	b_string get_expression(const T & t) const
+	b_string get_basic_expression(const T & t) const
+	{
+		return b_string(document_comparison(Operator, t));
+	}
+
+	template<int Operator, typename T>
+	b_string get_column_expression(const T & t) const
 	{
 		return b_string(document_comparison(Operator, t));
 	}
@@ -171,17 +179,19 @@ public:
 		if(!message.str().empty())
 		{
 			std::stringstream prefix;
-			prefix << "\nIn column " << _title << ", of file " << _file << ": " << message;
+			prefix << "\nIn column " << _title << ", of file " << _file << ": " << message.str();
 			return prefix.str();
 		}
 
 		return "";
 	}
 
+
 private:
 	template<typename T>
 	std::string internal_comparison(int op, const T & t) const
 	{
+		std::cerr << "ERROR: comparison not implemented.";
 		return "comparison not implemented.";
 	}
 };

@@ -50,6 +50,6 @@ INSTANTIATE my_world OBJECT
 REACTION_DATA_OUTPUT
 {
    STEP = 1e-5
-   {COUNT [A, WORLD] } => countdir & "./eq_A.dat"
-   {COUNT [B, WORLD] } => countdir & "./eq_B.dat"
+   {COUNT [A, WORLD] } => "./eq_A.dat"
+   {COUNT [B, WORLD] } => "./eq_B.dat"
 }

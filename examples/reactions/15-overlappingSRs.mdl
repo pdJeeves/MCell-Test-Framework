@@ -66,13 +66,13 @@ REACTION_DATA_OUTPUT
     COUNT ["B;", World.Icosphere[r4]]: "r4_B", 
     COUNT ["C;", World.Icosphere[r4]]: "r4_C",
     COUNT ["D;", World.Icosphere[r4]]: "r4_D"
-  }  => countdir & "r4.dat" 
+  }  => "r4.dat" 
     
   {
     COUNT ["B;", World.Icosphere[r5]]: "r5_B", 
     COUNT ["C;", World.Icosphere[r5]]: "r5_C",
     COUNT ["D;", World.Icosphere[r5]]: "r5_D"
-  }  => countdir & "r5.dat" 
+  }  => "r5.dat" 
 
 }
 

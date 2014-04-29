@@ -1,0 +1,25 @@
+#ifndef _b_string_h_
+#define _b_string_h_
+#include <string>
+
+class b_string
+{
+private:
+	bool        _evaluated;
+	std::string _string;
+
+public:
+	b_string();
+	b_string(b_string & it);
+	b_string(std::string result);
+	~b_string();
+
+	bool get_bool();
+	std::string get_string();
+};
+
+
+
+
+#endif
+

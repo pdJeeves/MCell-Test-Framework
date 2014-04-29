@@ -1,0 +1,189 @@
+#ifndef _data_column_hpp_
+#define _data_column_hpp_
+#include <boost/python/slice.hpp>
+#include <sstream>
+#include "b_string.h"
+#include <vector>
+
+template<typename type>
+class data_column : public std::vector<type>
+{
+typedef std::vector<type> super;
+	std::string _title;
+	std::string _file;
+
+public:
+	int _min_row;
+
+	data_column(const std::string & title, const std::string & file, int min = 0)
+	: _title(title), _file(file)
+	{
+		_min_row = min;
+	}
+
+	int get_min_row() const { return _min_row; }
+
+	std::string get_title() const
+	{
+		return _title;
+	}
+
+	std::string get_filename() const
+	{
+		return _file;
+	}
+
+	type get_numbered_item(int i)
+	{
+		if(0 < i && i < super::size())
+		{
+			return super::at(i);
+		}
+
+		std::cerr << "ERROR: tried to get invalid index " << i;
+	
+		type ret;
+		return ret;
+	}
+
+//ARGH!
+	data_column<type> get_slice(const boost::python::slice & s)
+	{
+		int start = 0;
+		int stop  = super::size();
+		int step  = 1;
+
+		if(boost::python::extract<long>(s.start()).check())
+		{
+			start = boost::python::extract<long>(s.start()) % stop;
+		}
+		if(boost::python::extract<long>(s.step()).check())
+		{
+			step = boost::python::extract<long>(s.step()) % stop;
+		}
+		if(boost::python::extract<long>(s.stop()).check())
+		{
+			stop = boost::python::extract<long>(s.stop()) % stop;
+		}
+
+		auto ret = data_column<type>(_title, _file, _min_row + start); 
+
+		for(int i = start; i <= stop && i < super::size(); i += step)
+		{
+			ret.push_back(super::at(i));
+		}
+
+		return ret;
+	}
+
+#define forward(a,b,c)  a b c
+#define reverse(a,b,c)  c b a 
+
+#define basic_operation(trans, tok, op)\
+	template<typename T, typename return_type>\
+	data_column<return_type> basic_##tok (const T & t) const\
+	{\
+		auto r_value = data_column<return_type>(_title, _file, _min_row);\
+\
+		for(int i = 0; i < super::size(); ++i)\
+		{\
+			r_value.push_back(trans(super::at(i), op, t));\
+		}\
+\
+		return r_value;\
+	}
+
+#define column_operation(trans, tok, op)\
+	basic_operation(trans, tok, op)\
+	template<typename T, typename return_type>\
+	data_column<return_type> column_##tok(const data_column<T> & t) const\
+	{\
+		auto r_value = data_column<return_type>(_title, _file, _min_row);\
+\
+		for(unsigned int i = 0; i < super::size() && i < t.size(); ++i)\
+		{\
+			r_value.push_back(trans(super::at(i), op, t.at(i)));\
+		}\
+\
+		return r_value;\
+	}
+
+#define associative_operation(tok, op)\
+	column_operation(forward, tok, op)
+
+#define nonassociative_operation(tok, op)\
+	column_operation(forward, tok, op)\
+	column_operation(reverse, r##tok, op)
+
+	associative_operation(add, +)
+	nonassociative_operation(sub, -)
+	associative_operation(mul, *)
+	nonassociative_operation(div, /)
+
+#undef nonassociative_operation
+#undef associative_operation
+#undef column_operation
+#undef basic_operation
+#undef reverse
+#undef forward
+
+	const data_column<type> save() const
+	{
+		return *this;
+	}
+
+	data_column<type> negate()
+	{
+		auto r_value = data_column<type>(_title, _file, _min_row);
+
+		for(int i = 0; i < super::size(); ++i)
+		{
+			r_value.push_back(-super::at(i));
+		}
+		return r_value;
+	}
+
+	data_column<type> absolute()
+	{
+		auto r_value = data_column<type>(_title, _file, _min_row);
+
+		for(int i = 0; i < super::size(); ++i)
+		{
+			r_value.push_back(super::at(i) < 0? - super::at(i) : super::at(i));
+		}
+
+		return r_value;
+	}
+
+	template<int Operator, typename T>
+	b_string get_expression(const T & t) const
+	{
+		return b_string(document_comparison(Operator, t));
+	}
+
+	template<typename T>
+	std::string document_comparison(int Operator, const T & t) const
+	{
+		std::stringstream message;
+
+		message << internal_comparison(Operator, t);
+
+		if(!message.str().empty())
+		{
+			std::stringstream prefix;
+			prefix << "\nIn column " << _title << ", of file " << _file << ": " << message;
+			return prefix.str();
+		}
+
+		return "";
+	}
+
+private:
+	template<typename T>
+	std::string internal_comparison(int op, const T & t) const
+	{
+		return "comparison not implemented.";
+	}
+};
+
+#endif

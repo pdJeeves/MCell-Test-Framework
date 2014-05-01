@@ -10,8 +10,8 @@
      each orientation, and the fraction of dimer pairs exhibiting each
      possible orientation combination.
  
-  Author: Jed Wing <jed@salk.edu>
-  Date:   2008-04-04
+  Author: { 'Jed Wing' } <jed@salk.edu>
+  Date:   { 2008/04/04 }
 """
 
 t = MCellTest("03-macro_surface_listrelease")

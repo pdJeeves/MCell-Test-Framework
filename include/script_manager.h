@@ -9,8 +9,8 @@
 #include <vector>
 #include <string>
 
-#include "pcl.h"
-#define pipe_data
+//#include "pcl.h"
+//#define pipe_data
 
 using std::vector;
 using std::string;

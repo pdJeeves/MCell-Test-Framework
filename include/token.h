@@ -2,6 +2,7 @@
 #define _token_h_
 #include "types.h"
 #include <cstdio>
+#include <cstdlib>
 #include <sstream>
 #include <iomanip>
 #include <string>
@@ -114,6 +115,27 @@ public:
 		    || _integer   != it._integer
 		    || _self      != it._self;
 	}
+
+	bool operator==(char i)          const
+	{
+		if(_type == Operator)
+		{
+			return _integer == i;
+		}
+
+		return false;
+	}
+
+	bool operator!=(char i)          const
+	{
+		if(_type == Operator)
+		{
+			return _integer != i;
+		}
+
+		return true;
+	}
+
 /** if the token is an integer or double,
 	 then return if it is equal to the given integer,
 	otherwise false **/
@@ -283,18 +305,19 @@ public:
 		return *(static_cast<Derived *>(this));
 	}
 /** set type to int and value to i */
-	Derived &     set_integer  (long long int i)
+	Derived &     set_integer  (const std::string & s)
 	{
 		_type    = Integer;
-		_integer = i;
-
+		_integer = atoll(s.c_str());
+		_self    = s;
 		return *(static_cast<Derived *>(this));
 	}
 /** set type to float and value to i */
-	Derived &     set_double   (long double   i)
+	Derived &     set_double   (const std::string & s)
 	{
 		_type    = Double;
-		_double  = i;
+		_double  = atof(s.c_str());
+		_self    = s;
 
 		return *(static_cast<Derived *>(this));
 	}

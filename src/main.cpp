@@ -23,7 +23,6 @@ uint    config::threads     = 4;
 bool    config::force 	    = false;
 bool    config::run_all	    = false;
 
-
 /* current directory -- where the file is
  * working directory -- where mcell outputs it's files to
  * output directory  -- where we output our files to
@@ -38,7 +37,7 @@ void scan_filesystem(const path & cur)
 
 	if(boost::filesystem::is_directory(cur))
 	{
-/* can create an inifinte loop if we add a folder to the folder we're in now, so create a buffer queue */
+/* can create an inifinte loop if we add a folder to the folder we're iterating in, so create a buffer queue */
 		std::queue<path> BFS;
 
 		boost::filesystem::directory_iterator begin(cur);
@@ -63,7 +62,6 @@ void scan_filesystem(const path & cur)
 		}
 	}
 }
-
 
 void create_directories(const boost::filesystem::path & cur, 
 						      boost::filesystem::path & work,
@@ -117,11 +115,27 @@ void try_run_file(const boost::filesystem::path & cur)
 
 	script_file_parser script_file(cur.native());
 
-	if(script_file.is_valid() && config::query->evaluate(script_file))
+	if(script_file.is_valid())
 	{
 		boost::filesystem::path work, out;
 		create_directories(cur, work, out);
-		script_scheduler()->schedule_file(cur, work, out);
+
+		auto parent = cur.parent_path();
+		auto start  = parent.begin();
+
+		for(auto p = config::tests.begin(); p != config::tests.end() && *p == *start; ++p, ++start) ;
+
+		for(; start != parent.end(); ++start)
+		{
+			script_file.add_keyword((*start).native());
+		}
+
+		script_file.add_title(cur.stem().native());
+
+		if(config::query->evaluate(script_file))
+		{
+			script_scheduler()->schedule_file(cur, work, out);
+		}
 	}
 }
 
@@ -138,13 +152,15 @@ int main(int argc, const char * argv[])
 	}
 	else if(config::query == NULL)
 	{
-		std::cout << "\nuse man MCellTest for help.";
+		std::cout << "Use man MCellTest for help.";
 	}
 	else
 	{
 		scan_filesystem<try_run_file>(config::tests);
 		script_scheduler()->wait();
 	}
+
+	std::cout << std::endl;
 
 	return 0;
 }

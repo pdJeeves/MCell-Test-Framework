@@ -1,5 +1,5 @@
 """
-  Test 04: Surface macromolecule init by density/number.
+  Test 04: {Surface} macromolecule init by {density}/number.
  
  This test is to ensure that init_effectors properly handles surface
  macromolecules.  Most of the information is conveyed by the time 0 viz
@@ -16,11 +16,11 @@
  of the dimer pairs from each ring is intentionally placed with the wrong
  orientation to react).
  
-  Author: Jed Wing <jed@salk.edu>
-  Date:   2008-04-04
+  Author: { 'Jed Wing' } <jed@salk.edu>
+  Date:   { 2008/04/04 }
 """
 
-t = MCellTest('counts')
+t = MCellTest('04-macro_surface_init')
 counts = t['counts']
 
 counts[1]  == 12*counts[0]

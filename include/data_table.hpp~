@@ -409,7 +409,7 @@ public:
 		return b_string(message.str());
 	}
 
-	template<int Operator, typename T>
+	template<int Operator>
 	b_string get_list_expression(const boost::python::list & t);
 };
 

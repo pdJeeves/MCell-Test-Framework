@@ -26,11 +26,11 @@
      separate rules for the singly-bound case, whereas they are counted
      together if the subunits in the dimer are both bound or both unbound.
  
-  Author: Jed Wing <jed@salk.edu>
-  Date:   2008-04-04
+  Author: { 'Jed Wing'} <jed@salk.edu>
+  Date:   { 2008/04/04 }
 """
 
-t = McellTest("02-macro_surface")
+t = MCellTest("02-macro_surface")
 counts = t['counts']
 
 counts[0] == counts[1] + counts[2]

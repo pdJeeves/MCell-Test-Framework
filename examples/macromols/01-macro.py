@@ -1,11 +1,11 @@
 """
  Test 01: Simple volume macromolecules.
 
-    This case is simple enough that it may be solved analytically.  When I
+    This case is simple enough that it may be solved {analytical}ly.  When I
     was originally working on the macromolecules, I compared against the
     analytically derived solution.
 
-    An analyically derived solution is:
+    An analytically derived solution is:
         d_0 ~31.1
         d_1 ~30.0
         d_2 ~28.9
@@ -24,8 +24,8 @@
 
     01 and 10 should be in agreement at all times.
 
- Author: Jed Wing <jed@salk.edu>
- Date:   2008-04-04
+ Author: {'Jed Wing'} <jed@salk.edu>
+ Date:   {2008/04/04}
 """
 
 t = MCellTest("01-macro")
@@ -36,7 +36,8 @@ counts[1] == counts[2]
 counts[0] + counts[1] == counts[4]
 counts[2] + counts[3] == counts[5]
 
-counts.min_time = 0.001
+counts = counts.after(0.001)
+
 Average(counts[0  ]) in Distribution(62.2, 3.0)
 Average(counts[1:2]) in Distribution(30.0, 1.5)
 Average(counts[3  ]) in Distribution(57.8, 3.0)

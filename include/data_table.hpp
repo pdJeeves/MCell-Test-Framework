@@ -50,7 +50,7 @@ public:
 
 		int offset = _header.size() - col_count;
 
-		for(int i = 1; i < col_count; ++i)
+		for(int i = 0; i < col_count; ++i)
 		{
 			if(offset >= 0)
 			{

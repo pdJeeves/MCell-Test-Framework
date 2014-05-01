@@ -1,6 +1,8 @@
 #include "query_parser.h"
 #include "script_file_parser.h"
 
+extern int least_edit_distance(const std::string & a, const std::string & b);
+
 query_interface * query_interface::parse(int & begin, int argc, const char * args[])
 {
 	return query_or::parse(begin, argc, args);
@@ -183,7 +185,7 @@ int query_not::date_parse(const char * arg)
 		day   = atoi(arg+8);
 	}
 
-	return (((year << 4) | month) << 5) | day;
+	return (year*100 + month)*100 + day;
 }
 
 query_interface * query_not::parse(int & begin, int end, const char * args[])
@@ -238,7 +240,7 @@ bool query_keyword::evaluate(const key_list & vec) const
 {
 	for(key_list::iterator i(vec.begin()); i != vec.end(); ++i)
 	{
-		if(_keyword.compare(*i) == 0)
+		if(((double) least_edit_distance(_keyword, *i))/_keyword.size() < 1)
 		{
 			return true;
 		}

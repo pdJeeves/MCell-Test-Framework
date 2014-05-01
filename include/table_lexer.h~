@@ -2,7 +2,7 @@
 #define _table_lexer_h_
 #include "file_lexer.h"
 #include <boost/shared_ptr.hpp>
-#include "average.h"
+#include "data_table.hpp"
 #include <map>
 #include "memoized_lexer.hpp"
 
@@ -15,6 +15,10 @@ typedef memoized_lexer<token, 10> super;
 	table_lexer();
 	virtual ~table_lexer();
 	void read_file(const std::string & s);
+
+private:
+	bool is_double(int pos=0) const;
+	bool get_double();
 
 public:
 #define map_definition(key, value, name)\

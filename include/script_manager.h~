@@ -10,7 +10,7 @@
 #include <string>
 
 //#include "pcl.h"
-#define pipe_data
+//#define pipe_data
 
 using std::vector;
 using std::string;
